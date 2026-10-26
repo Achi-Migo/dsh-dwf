@@ -1,0 +1,54 @@
+dsh-dwf — NOTICE
+=================
+
+This product includes and derives from work by third parties. The statements
+below are part of the license terms (see LICENSE section 3) and MUST be
+preserved in any copy, modification or redistribution.
+
+1. Derived from ZCode's dynamic-workflow runtime
+------------------------------------------------
+dsh-dwf is an independent reimplementation of the dynamic-workflow feature of
+ZCode (a Z.ai / Zhipu product). The following parts were produced by studying
+ZCode's shipped runtime and are therefore derivative:
+
+  - `src/guest/prelude.ts`     guest program prelude (facade bridge, stall
+                               detection semantics)
+  - `src/guest/channels.ts`    channel / future pipeline primitives
+  - `src/guest/realm.ts`       deterministic realm restrictions
+  - `src/journal/schema.ts`    journal table layout
+  - `src/util/fnv1a.ts`        site-id hashing scheme
+  - `src/engine/actor.ts`      actor/subagent option mapping
+  - `assets/facade.d.ts`       script-facing facade declaration
+  - `assets/guest-prelude.js`, `assets/guest-channel-future.js`
+  - `assets/journal-schema.sql`
+
+No ZCode source code is redistributed verbatim by intent; the files above are
+rewritten for the DSH plugin contract. ZCode itself is a separate product and
+is NOT licensed by this project — obtain ZCode from its vendor and under its
+own terms. "ZCode" is used here only to describe provenance, not as a claim of
+affiliation or endorsement.
+
+2. Built on DeepSeek Harness (@deepseek-ai/*)
+---------------------------------------------
+dsh-dwf is a plugin for DeepSeek Harness 0.2.1-rc.3 and implements interfaces
+published by the official packages (cordis, dsh-workflow, dsh-agent,
+dsh-subagent, dsh-ptc-runtime, dsh-sandbox, dsh-tools, dsh-session,
+schemastery and related). Those packages are governed by their own licenses;
+this project claims no rights over them and redistributes none of them.
+
+3. Ported patterns from Claude Code dynamic workflows
+-----------------------------------------------------
+The facade vocabulary and several workflow patterns were informed by the
+publicly documented Claude Code dynamic-workflows feature. No code is copied
+from it.
+
+4. This project's own contribution
+----------------------------------
+The TypeScript compiler layer, the workflow engine and scheduler, the journal
+store and projection, the model pool, the tool surface, the test suite and all
+documentation written for this repository are original work by the dsh-dwf
+maintainers, licensed under LICENSE (non-commercial, attribution required).
+
+-----------------------------------------------------------------------------
+If you redistribute dsh-dwf, you must carry this NOTICE and the attribution
+requirements of LICENSE section 3 with it.

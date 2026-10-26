@@ -1,0 +1,79 @@
+dsh-dwf License (Source-Available, Non-Commercial, Attribution Required)
+=========================================================================
+
+Copyright (c) 2026 zakza and contributors
+
+This license applies to the dsh-dwf project: the TypeScript compiler layer,
+engine, journal, tool surface, guest sandbox and all accompanying
+documentation in this repository ("the Work").
+
+
+1. PERMITTED USES
+-----------------
+You MAY, free of charge and without asking permission:
+
+  a. use the Work for any non-commercial purpose, including personal,
+     educational, academic and research use;
+  b. use the Work for evaluation, testing and internal non-commercial
+     tooling;
+  c. copy, modify and create derivative works of the Work for the purposes
+     in (a) and (b);
+  d. redistribute the Work or your derivative works, in source or built
+     form, for non-commercial purposes only.
+
+
+2. COMMERCIAL USE IS NOT PERMITTED
+----------------------------------
+You MAY NOT use, copy, modify, distribute, sublicense or otherwise exploit
+the Work, in whole or in substantial part, for any commercial purpose,
+including but not limited to:
+
+  a. selling the Work or any derivative of it;
+  b. bundling the Work into a paid product or a paid service;
+  c. operating a hosted or subscription service that provides the Work's
+     functionality to third parties for a fee;
+  d. using the Work in the ordinary course of a business for revenue
+     generation or in a production commercial deployment.
+
+Commercial licensing is available only with prior written permission from
+the copyright holder. Contact the maintainer to request it.
+
+
+3. ATTRIBUTION AND SOURCE DECLARATION ARE MANDATORY
+----------------------------------------------------
+Any copy, modification or redistribution of the Work, in any form, MUST:
+
+  a. retain this LICENSE file and the NOTICE file unmodified;
+  b. retain all copyright, attribution and source-declaration notices in
+     source files and documentation;
+  c. clearly state, in any user-facing description of the Work or of a
+     derivative, (i) that it derives from dsh-dwf, (ii) who maintains the
+     original, and (iii) the upstream projects acknowledged in NOTICE;
+  d. mark any modified files prominently as modified, without implying the
+     original authors endorse the modification.
+
+See NOTICE for the upstream and derivation statements that must travel
+with the Work.
+
+
+4. NO WARRANTY
+--------------
+THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE WORK OR THE USE OR OTHER DEALINGS IN
+THE WORK.
+
+
+5. NO TRADEMARK RIGHTS
+----------------------
+This license grants no rights to the names, logos or trademarks of the
+maintainers or of any upstream project acknowledged in NOTICE.
+
+
+-----------------------------------------------------------------------------
+This is a source-available license, not an OSI-approved open-source license:
+the non-commercial restriction in section 2 places it outside the Open
+Source Definition.

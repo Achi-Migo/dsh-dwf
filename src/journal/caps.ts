@@ -1,0 +1,24 @@
+/** Facade caps — every cap rejects rather than truncates where the facade says so. */
+
+import type { Caps } from '../types/index.d.ts'
+
+export const CAPS: Caps = {
+  maxPhases: 32,
+  maxPhaseNameLength: 128,
+  maxSubagents: 64,
+  maxNodes: 2000,
+  worldStdoutCap: 256 << 10,
+  worldReadCap: 2000,
+  grepResultBytes: 256 << 10,
+  gitDiffBytes: 512 << 10,
+  gitLogCommits: 100,
+  reportItemsPerRun: 65536,
+  reportItemBytes: 1 << 20,
+  reportTotalBytes: 1 << 30,
+  artifactIds: 32,
+  artifactVersions: 16,
+  artifactFileBytes: 20 << 20,
+  artifactMdBytes: 256 << 10,
+  artifactTitleChars: 120,
+  artifactDescriptionChars: 500,
+} as const

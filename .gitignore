@@ -1,0 +1,41 @@
+# Byte-compiled / caches
+__pycache__/
+*.py[cod]
+node_modules/
+.DS_Store
+
+# Build / coverage output
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+# Local runtime state — never commit journals or credentials
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+.credentials*
+*.key
+*.pem
+.env
+.env.*
+
+# Editor / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+
+# ZCode workflow run artifacts
+.zcode/workflow-runs/
+.zcode/workflow-drafts/
+
+# dsh local runtime state (audit JSONL, journals) — machine-specific
+.dsh/
+
+# Local scratch
+*.bak
+*.bak-*
+*.pre-*
+out/

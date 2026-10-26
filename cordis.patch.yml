@@ -1,0 +1,53 @@
+# The dsh-dwf bundle patch: TWO rows, mirroring the official split where
+# @deepseek-ai/dsh-workflow-ptc (the engine service) and dsh-tool-workflow
+# (the model tool) are separate entries.
+#
+# 1. `dwf-engine` loads @zakza/dsh-dwf/engine (src/engine-entry.ts, default
+#    export DwfWorkflowEngine) — it PUBLISHES the 'workflowEngine' service
+#    slot. Loaded before the dwf row so the tool entry's inject resolves.
+# 2. `dwf` loads @zakza/dsh-dwf (src/index.ts) — injects tools/workflowEngine/
+#    systemPrompt and registers the model tools + prompt section over the same
+#    journal database (dbPath must match the engine row).
+#
+# Config fields mirror src/engine/engine.ts Config (schemastery fills defaults;
+# a patch row replaces the targeted row's whole config).
+#
+# dbPath is intentionally empty here so the package is portable: an empty path
+# resolves to ./dwf.db under the host process cwd. Set an absolute `dbPath` in
+# your profile's user layer (both rows, identical value) — the engine writes
+# and the `dwf` tool reads through that single path.
+#
+# Coexistence note: the base bundle's official workflow-ptc / tool-workflow
+# rows must be disabled by the profile's user layer — this engine takes the
+# slot and the `dwf` tool replaces the official `workflow` tool surface
+# (different script contract: TS-checked facade, not the official plain-JS
+# hooks).
+
+- insert:
+    - id: dwf-engine
+      name: '@zakza/dsh-dwf/engine'
+      config:
+        toolName: dwf
+        dbPath: ''
+        maxConcurrency: 4
+        maxTotalAgents: 1000
+        maxResultChars: 50000
+        enableRunInBackground: true
+        modelPool: ''
+        poolPolicy: spread
+        poolCooldownMs: 60000
+        failoverAttempts: 3
+
+    - id: dwf
+      name: '@zakza/dsh-dwf'
+      config:
+        toolName: dwf
+        dbPath: ''
+        maxConcurrency: 4
+        maxTotalAgents: 1000
+        maxResultChars: 50000
+        enableRunInBackground: true
+        modelPool: ''
+        poolPolicy: spread
+        poolCooldownMs: 60000
+        failoverAttempts: 3
