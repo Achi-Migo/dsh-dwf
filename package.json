@@ -1,6 +1,6 @@
 {
   "name": "@zakza/dsh-dwf",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Deterministic dynamic-workflow engine for DeepSeek Harness: TS-facade compiler, replay journal, deterministic guest sandbox, actor subagents, dwf workflow tools",
   "type": "module",
   "main": "lib/index.js",
