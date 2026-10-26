@@ -21,6 +21,7 @@
  */
 
 import type { Context } from '@deepseek-ai/cordis'
+import { KNOWN_SESSION_EVENT_TYPES } from '@deepseek-ai/dsh-session'
 import type { Session, SessionEventMap } from '@deepseek-ai/dsh-session'
 import type {
   WorkflowAgentEndInfo,
@@ -60,6 +61,19 @@ export interface DwfRunEndData {
 
 /** The four log-only events this recorder appends to the parent session. */
 type DwfRecordEvent = 'dwf/run-start' | 'dwf/agent-start' | 'dwf/agent-end' | 'dwf/run-end'
+
+// Type augmentation alone does not register durable events at runtime. The
+// persistence reader rejects an entire session when it encounters an unknown,
+// non-ignorable event. Register at module load (before history is observed),
+// not in RunRecorder's constructor, which only runs for new workflows.
+// These four records are observations only; unknown unrelated types stay denied.
+for (const type of [
+  'dwf/run-start', 'dwf/agent-start', 'dwf/agent-end', 'dwf/run-end',
+] satisfies DwfRecordEvent[]) {
+  // The host exposes a ReadonlySet type, but currently stores a mutable Set;
+  // replace this compatibility bridge when it provides a registration API.
+  ;(KNOWN_SESSION_EVENT_TYPES as Set<string>).add(type)
+}
 
 declare module '@deepseek-ai/dsh-session' {
   interface SessionEventMap {
