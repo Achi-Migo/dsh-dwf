@@ -35,13 +35,20 @@ script facade** instead of plain JS, a **replay journal** in SQLite, a
 
 ## Install
 
-```bash
-# 1. install into a profile (dsh forwards this to pnpm)
-dsh plugin --profile personal add <this-package>
+`dsh-dwf` resolves its `@deepseek-ai/*` imports from the DSH host, so it must be
+installed **into a DSH profile** — not into a bare project (a plain `npm i`
+outside DSH leaves the peer packages unresolved, by design).
 
-# 2. disable the official engine + tool so only one workflow surface is mounted
-#    (add to $DSH_HOME/profiles/personal/cordis.patch.yml)
+```bash
+# from GitHub
+dsh plugin --profile personal add github:Achi-Migo/dsh-dwf
+
+# or from a packed tarball
+npm pack && dsh plugin --profile personal add ./zakza-dsh-dwf-0.1.0.tgz
 ```
+
+Then disable the official engine + tool so only one workflow surface is mounted
+(add to `$DSH_HOME/profiles/personal/cordis.patch.yml`):
 
 ```yaml
 - id: workflow-ptc
